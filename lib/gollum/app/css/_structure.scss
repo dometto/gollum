@@ -1,6 +1,6 @@
-// Describes common component styles for Gollum pages
+/***** Components & containers */
 
-// Sets a reusable component container.
+// A reusable component container
 @mixin component-base {
   background-color: $light-grey;
   border: $border-standard;
@@ -39,7 +39,7 @@
 
   width: 100%;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     margin: 1em 0 0.4em;
   }
 }
@@ -87,7 +87,7 @@
   width: $editor-button-size;
   height: $editor-button-size;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     width: $editor-button-desktop-size;
     height: $editor-button-desktop-size;
   }
@@ -95,13 +95,13 @@
 
 // Defines a common editor button style using image sprites.
 @mixin editor-button($row-pos: 0) {
-  $left: $editor-button-img-width * -1 * $row-pos;
-  $left-mobile: $left + $editor-button-mobile-margin;
+  $left: $todo-size-03 * -1 * $row-pos;
+  $left-mobile: $left + $todo-size-04;
 
   $top: 0;
-  $top-hover: -1 * $editor-button-img-height;
-  $top-mobile: $editor-button-mobile-margin;
-  $top-mobile-hover: -1 * $editor-button-img-height + $editor-button-mobile-margin;
+  $top-hover: -1 * $todo-size-02;
+  $top-mobile: $todo-size-04;
+  $top-mobile-hover: -1 * $todo-size-02 + $todo-size-04;
 
   span {
     background-position: $left-mobile $top-mobile;
@@ -111,7 +111,7 @@
       background-position: $left-mobile $top-mobile-hover;
     }
   }
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     span {
       background-position: $left $top;
     }

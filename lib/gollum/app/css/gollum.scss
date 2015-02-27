@@ -1,6 +1,6 @@
 // Basic stylesheet for Gollum
 
-@import "_base", "_breakpoint", "_features", "_layout", "_component";
+@import "_base", "_breakpoint", "_features", "_structure";
 
 /* @section core */
 body, html {
@@ -35,7 +35,7 @@ a {
   padding: 0;
   overflow: hidden;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     border-bottom: $border-standard;
     padding-bottom: 0.3em;
     margin: 4em 0 1.5em;
@@ -48,7 +48,7 @@ a {
     margin: 0;
     padding: 0 0 0 0.667em;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       font-size: 2.5em;
       padding: 2px 0 0 0;
     }
@@ -58,7 +58,7 @@ a {
     clear: both;
     margin: 0 1em;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       clear: none;
       float: right;
       margin: 0;
@@ -210,7 +210,7 @@ a {
   .actions {
     margin-left: 1em;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       margin: 0;
     }
   }
@@ -326,7 +326,7 @@ a {
   margin: 0 0.6em 0 0;
 }
 
-@include desktop-breakpoint {
+@include breakpoint-desktop {
   #wiki-history {
     margin: 2em 0 0 0;
 
@@ -362,7 +362,7 @@ a {
     margin-bottom: 2em;
     padding-bottom: 2em;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       margin-left: 0;
       margin-right: 0;
     }
@@ -375,11 +375,11 @@ a {
         list-style: none;
         padding: 0.2em 0;
 
-        @include largemobile-breakpoint {
+        @include breakpoint-largemobile {
           font-size: 1.2em;
         }
 
-        @include desktop-breakpoint {
+        @include breakpoint-desktop {
           list-style: disc;
           list-style-position: outside;
           line-height: 1.6em;
@@ -512,7 +512,7 @@ ul.actions {
     margin-left: 1px;
     margin-bottom: 1px;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       margin-left: 0.6em;
       margin-bottom: 0.6em;
     }
@@ -526,7 +526,7 @@ ul.actions {
   padding: 0.6em 1em;
   height: 1.4em;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     padding: 0.4em 1em;
   }
 }
@@ -548,8 +548,8 @@ ul.actions {
 }
 
 #error {
-  background-color: $color-editor-component;
-  border: $border-editor-component;
+  background-color: $todo-color-01;
+  border: $todo-color-02;
   left: 50%;
   overflow: hidden;
   padding: 2%;
@@ -579,7 +579,7 @@ ul.actions {
   float: right;
   overflow: hidden;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     padding: 0;
   }
 
@@ -587,10 +587,10 @@ ul.actions {
     background: #fff;
     border: none;
     overflow: hidden;
-    height: $editor-button-size;
+    height: $todo-size-01;
 
-    @include desktop-breakpoint {
-      height: $editor-button-img-height;
+    @include breakpoint-desktop {
+      height: $todo-size-02;
     }
 
     input#search-query {
@@ -647,7 +647,7 @@ ul.actions {
           height: 2.2em;
         }
 
-        @include desktop-breakpoint {
+        @include breakpoint-desktop {
           width: 28px;
         }
       }
@@ -665,7 +665,7 @@ ul.actions {
   font-size: 1.2em;
   margin: 0 1em 20px 1em;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     margin: 0 0 20px 0;
   }
 

@@ -124,7 +124,7 @@ a {
   overflow: hidden;
   word-wrap: break-word;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     padding: 30px;
   }
 

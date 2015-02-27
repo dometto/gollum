@@ -1,6 +1,31 @@
-// Wiki editor formatting
+/****************************************************************/
+/* SPECIAL STYLES FOR THE PAGE EDITOR
+/****************************************************************/
 
-@import "_base", "_features", "_breakpoint", "_component";
+/***** Variables & parameters */
+
+@import "_base", "_breakpoint";
+
+// Colors
+$color-editor-element-border: #eee;
+$color-editor-component-border: $todo-color-02;
+$color-editor-component: $todo-color-01;
+
+// Buttons
+$editor-button-size: $todo-size-01;
+$editor-button-desktop-size: 25px;
+
+$editor-button-mobile-margin: $todo-size-04;
+$editor-button-img-width: $todo-size-03;
+$editor-button-img-height: $todo-size-02;
+
+// Borders
+$border-editor-component: 1px solid $color-editor-component-border;
+$border-editor-element: 1px solid $color-editor-element-border;
+
+/***** Styles */
+
+@import "_features", "_structure";
 
 a {
   -moz-outline: none !important;
@@ -27,7 +52,7 @@ a {
     padding-bottom: 1em;
   }
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     border: $border-editor-component;
     background: $color-editor-component;
     margin: 1em 0 5em;
@@ -85,7 +110,7 @@ a {
     border-bottom: $border-standard;
     padding: 0;
 
-    @include desktop-breakpoint {
+    @include breakpoint-desktop {
       overflow: hidden;
     }
 
@@ -99,7 +124,7 @@ a {
         margin: 0;
         padding: 0;
 
-        @include desktop-breakpoint {
+        @include breakpoint-desktop {
           overflow: hidden;
           margin: 0;
           padding: 0 0 1.1em 0;
@@ -118,7 +143,7 @@ a {
         @include editor-button-size;
         @include button-base;
 
-        @include desktop-breakpoint {
+        @include breakpoint-desktop {
           margin: 0.2em 0.5em 0 0;
         }
 
@@ -139,7 +164,7 @@ a {
     span.function-divider {
       display: none;
 
-      @include desktop-breakpoint {
+      @include breakpoint-desktop {
         display: block;
         width: 0.5em;
         float: left;
@@ -152,7 +177,7 @@ a {
 
       @include clearfix;
 
-      @include desktop-breakpoint {
+      @include breakpoint-desktop {
         clear: none;
         text-align: right;
       }
@@ -250,7 +275,7 @@ a {
       text-shadow: 0 -1px 0 #fff;
       line-height: $editor-button-size;
 
-      @include desktop-breakpoint {
+      @include breakpoint-desktop {
         line-height: $editor-button-desktop-size;
       }
     }
@@ -389,7 +414,7 @@ a#function-search { @include editor-button(16); }
   border: $border-standard;
   border-width: 0 1px 1px 1px;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     clear: none;
   }
 }
@@ -405,7 +430,7 @@ a#function-search { @include editor-button(16); }
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     height: 17em;
     width: 18%;
     overflow: auto;
@@ -429,7 +454,7 @@ a#function-search { @include editor-button(16); }
       text-shadow: 0 -1px 0 #fff;
       font-size: 0.8em;
 
-      @include desktop-breakpoint {
+      @include breakpoint-desktop {
         font-size: 1em;
       }
 
@@ -470,7 +495,7 @@ a#function-search { @include editor-button(16); }
   padding: 1em;
   clear: both;
 
-  @include desktop-breakpoint {
+  @include breakpoint-desktop {
     clear: none;
   }
 }
