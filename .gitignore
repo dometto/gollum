@@ -6,3 +6,6 @@ Gemfile.lock
 *.gem
 *.swp
 .*
+
+# SkyCrawl’s special treat
+Launch_with_BHWiki.launch
