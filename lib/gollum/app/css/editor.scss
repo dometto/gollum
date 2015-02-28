@@ -25,7 +25,7 @@ $border-editor-element: 1px solid $color-editor-element-border;
 
 /***** Styles */
 
-@import "_features", "_structure";
+@import "_utilities", "_structure";
 
 a {
   -moz-outline: none !important;
