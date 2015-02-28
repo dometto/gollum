@@ -10,9 +10,9 @@ Let's use this page to meet a nice consensus about everything, divide work, and 
 
 ### SASS structure
 
-* `_base` contains basic variables and global wiki layout - elements with IDs and classes prefixed with `wiki-`. Reason: all of this is used by every page (and if not, in some corner case like the editor, no harm is done).
+* `_base` contains basic variables and global wiki layout - elements with IDs and classes prefixed with `wiki-`. Reason: all of this is used by every page (and if not - in some corner case like the editor - no harm is done).
 * `_structure` contains classes for context-independent elements - containers & components defining STRUCTURE. For example: layouts with floating elements.
-* `_features` should IMHO actually be renamed to something like `_util`. Useful classes and mixins solving various problems.
+* `_utilities` contains classes and mixins that doesn't anywhere else.
 * Each wiki page gets its own `.scss` stylesheet.
 
 ## Some rules
