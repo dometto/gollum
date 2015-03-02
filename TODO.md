@@ -37,4 +37,8 @@ This way, after the old code is consolidated and the new code gets theming-ready
 
 ## Pending issues from original repository
 
-... add some
+* https://github.com/gollum/gollum/issues/978
+* https://github.com/gollum/gollum/issues/920
+* https://github.com/gollum/gollum/issues/917
+* https://github.com/gollum/gollum/issues/908
+* https://github.com/gollum/gollum/pull/902
