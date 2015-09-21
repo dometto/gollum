@@ -8,6 +8,7 @@ require 'mustache/sinatra'
 require 'useragent'
 require 'stringex'
 require 'json'
+require 'sass'
 
 require 'gollum'
 require 'gollum/views/layout'
@@ -50,6 +51,7 @@ end
 # See the wiki.rb file for more details on wiki options
 module Precious
   class App < Sinatra::Base
+    register Sinatra::AssetPack
     register Mustache::Sinatra
     register Sinatra::AssetPack
     include Precious::Helpers
@@ -92,6 +94,9 @@ module Precious
       Gollum::Editor.asset_paths do |asset_type, path|
         serve asset_type, from: path
       end
+      set :scss, {
+          :load_paths => ["#{dir}/app/css"]
+      }
       css :ie7,      ['/css/ie7.css']
       css :template, ['/css/template.css']
       css :print,    ['/css/print.css']
