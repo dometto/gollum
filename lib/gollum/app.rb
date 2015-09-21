@@ -89,14 +89,15 @@ module Precious
         # Tell mustache where the views are
         :views     => "#{dir}/views"
     }
+    
+    set :scss, {
+        :load_paths => ["#{dir}/app/css"]
+    }
 
     assets do
       Gollum::Editor.asset_paths do |asset_type, path|
         serve asset_type, from: path
       end
-      set :scss, {
-          :load_paths => ["#{dir}/app/css"]
-      }
       css :ie7,      ['/css/ie7.css']
       css :template, ['/css/template.css']
       css :print,    ['/css/print.css']
