@@ -11,7 +11,12 @@ module Precious
     end
 
     def editor
-      Gollum::Editor.active_editor.html({:formats => formats, :format => format, :base_url => base_url, :content => defined?(content) ? content : ''})
+      Gollum::Editor.active_editor.html({
+        :formats => formats,
+        :format => format,
+        :base_url => base_url,
+        :content => defined?(content) ? content : ''
+        })
     end
   end
 end
