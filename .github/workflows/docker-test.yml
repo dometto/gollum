@@ -40,4 +40,5 @@ jobs:
           ruby-version: 3.0.0
           bundler-cache: true
       - name: Run capybara test against instance
-        run: "docker run -d --rm -v $(pwd):/wiki  -e CI=true ${{ env.CI_IMAGE }} && GOLLUM_CAPYBARA_URL=http://localhost:4567 bundle exec rake test:capybara"
+        run: "docker run -d --rm -v $(pwd):/wiki  -e CI=true ${{ env.CI_IMAGE }}"
+        run: "GOLLUM_CAPYBARA_URL=http://localhost:4567 bundle exec rake test:capybara"
