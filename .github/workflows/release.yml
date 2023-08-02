@@ -26,13 +26,13 @@ jobs:
       - name: Run tests
         run: bundle exec rake
       - name: Create war
-        run: bundle exec warble runnable war && ls ${{ github.workspace }}
+        run: cd ${{ github.workspace }} && bundle exec warble runnable war
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
           token:  ${{ secrets.GITHUB_TOKEN }}
           body_path: "LATEST_CHANGES.md"
           files: |
