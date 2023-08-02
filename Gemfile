@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'warbler', platforms: :jruby
+gem 'warbler', platforms: :jruby, github: 'jruby/warbler'
 
 # FIXME:
 #
