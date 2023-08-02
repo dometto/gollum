@@ -26,7 +26,7 @@ jobs:
       - name: Run tests
         run: bundle exec rake
       - name: Create war
-        run: cd ${{ github.workspace }} && bundle exec warble runnable war
+        run: bundle exec warble runnable war ${{ github.workspace }/Gemfile
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
