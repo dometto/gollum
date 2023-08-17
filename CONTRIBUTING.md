@@ -1,3 +1,5 @@
+THIS PR SHOULD NOT TRIGGER A DOCKER TEST
+
 # Contributing to Gollum
 
 Thanks for your interest in the gollum project!
