@@ -1,7 +1,11 @@
 name: Build and Test Docker
 on:
   push:
+    paths-ignore:
+      - '**.md'
   pull_request:
+    paths-ignore:
+      - '**.md'
 env:
   CI_IMAGE: gollum-ci-img
 jobs:
