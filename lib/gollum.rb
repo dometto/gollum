@@ -5,7 +5,7 @@ require 'digest/sha1'
 require 'ostruct'
 
 # external
-require 'i18n'
+require "i18n"
 require 'github/markup'
 require 'rhino' if RUBY_PLATFORM == 'java'
 
