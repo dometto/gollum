@@ -13,7 +13,7 @@ RUN apk add --update \
 COPY Gemfile* /tmp/
 COPY gollum.gemspec* /tmp/
 WORKDIR /tmp
-RUN bundle lock --add-platform nokogiri-1.18.9-x86_64-linux-gnu && bundle install
+RUN bundle lock --add-platform nokogiri-1.18.9-x86_64-linux-gnu && bundle install --without test --without development
 
 RUN gem install \
     asciidoctor \
