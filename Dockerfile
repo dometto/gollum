@@ -15,6 +15,7 @@ COPY gollum.gemspec* /tmp/
 WORKDIR /tmp
 RUN bundle config set without development && \
     bundle config set without test && \
+    bundle config set --local force_ruby_platform true && \
     bundle lock --add-platform x86_64-linux-musl && \
     bundle lock --add-platform arm_64-linux-musl && \
     bundle install
