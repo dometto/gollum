@@ -15,7 +15,8 @@ COPY gollum.gemspec* /tmp/
 WORKDIR /tmp
 RUN bundle config set without development && \
     bundle config set without test && \
-    bundle lock --add-platform nokogiri-1.18.9-x86_64-linux-musl && \
+    bundle lock --add-platform x86_64-linux-musl && \
+    bundle lock --add-platform arm_64-linux-musl && \
     bundle install
 
 RUN gem install \
