@@ -94,7 +94,7 @@ jobs:
           platforms: linux/amd64, linux/arm64
 
       - name: Print Docker image digest (SHA256)
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: echo "${{ steps.docker_build.outputs.digest }}"
 
       - name: Run Capybara tests against a Dockerized Gollum instance
         run: |
@@ -113,10 +113,11 @@ jobs:
             --user $(id -u) \
             --rm \
             --publish 4567:4567 \
+            --platform linux/amd64
             --volume "$WIKI_ROOT":/wiki \
-            ${{ steps.docker_build.outputs.digest }} --math katex
+            ${{ steps.meta.outputs.tags[0] }} --math katex
           bundle exec rake test:capybara
-      
+
       # Build and test have been succesful: we can now push images to ghcr and DockerHub
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
