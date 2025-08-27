@@ -91,12 +91,16 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-          platforms: linux/amd64, linux/arm64
+          platforms: linux/amd64 # first build only for amd64, since tests might fail anyway.
 
       - name: Print Docker image digest (SHA256)
-        run: echo "${{ steps.docker_build.outputs.digest }}"
+        run: echo "$DOCKER_DIGEST"
+        env:
+          DOCKER_DIGEST: ${{ steps.docker_build.outputs.digest }}
 
       - name: Run Capybara tests against a Dockerized Gollum instance
+        env:
+          DOCKER_TAG: ${{ steps.meta.outputs.tags[0] }}
         run: |
           export GOLLUM_CAPYBARA_URL="http://127.0.0.1:4567"
           export RUNNER_TRACKING_ID=""
@@ -105,6 +109,8 @@ jobs:
           # Clone a test wiki to run tests against.
           #
           git clone test/examples/lotr.git "$WIKI_ROOT"
+
+          echo "Will run this docker image: $DOCKER_TAG"
 
           # Run a daemonized Docker instance in a normal way, then run tests.
           #
@@ -115,7 +121,7 @@ jobs:
             --publish 4567:4567 \
             --platform linux/amd64
             --volume "$WIKI_ROOT":/wiki \
-            ${{ steps.meta.outputs.tags[0] }} --math katex
+            $DOCKER_TAG --math katex
           bundle exec rake test:capybara
 
       # Build and test have been succesful: we can now push images to ghcr and DockerHub
@@ -134,7 +140,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Deploy image # will 'rebuild' the image, but nothing has changed
+      - name: Deploy image # will 'rebuild' the image, but nothing has changed for amd64
         if: github.event_name != 'pull_request'
         uses: docker/build-push-action@v6
         with:
@@ -145,4 +151,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
-          platforms: linux/amd64, linux/arm64
+          platforms: linux/amd64, linux/arm64 # now also build for arm
